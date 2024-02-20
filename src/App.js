@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from "./Components/Cards/card";
+import "./App.css";
 
 function App() {
+  const plans = [
+    {
+      subsType: "FREE",
+      price: "$0",
+      features: [
+        "Single User",
+        "50GB Storage",
+        "Unlimited Public Projects",
+        "Community Access",
+      ],
+    },
+    {
+      subsType: "PLUS",
+      price: "$9",
+      features: [
+        "Single User",
+        "50GB Storage",
+        "Unlimited Public Projects",
+        "Community Access",
+        "Unlimited Private Projects",
+        "Dedicated Phone Support",
+        "Free Subdomain",
+      ],
+    },
+    {
+      subsType: "PRO",
+      price: "$49",
+      features: [
+        "Single User",
+        "50GB Storage",
+        "Unlimited Public Projects",
+        "Community Access",
+        "Unlimited Private Projects",
+        "Dedicated Phone Support",
+        "Free Subdomain",
+        "Monthly Status Reports",
+      ],
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {plans.map((el, i) => {
+        return (
+          <Card
+            key={i}
+            subsType={el.subsType}
+            price={el.price}
+            features={el.features}
+          />
+        );
+      })}
     </div>
   );
 }
